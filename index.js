@@ -1,20 +1,26 @@
-var options = {
-    enableHighAccuracy: true,
-    timeout: 5000,
-    maximumAge: 0
-  };
-  
-  function success(pos) {
-    var crd = pos.coords;
-  
-    console.log('Your current position is:');
-    console.log(`Latitude : ${crd.latitude}`);
-    console.log(`Longitude: ${crd.longitude}`);
-    console.log(`More or less ${crd.accuracy} meters.`);
-  }
-  
-  function error(err) {
-    console.warn(`ERROR(${err.code}): ${err.message}`);
-  }
-  
-  navigator.geolocation.getCurrentPosition(success, error, options);
+const getPosition = (position) =>{
+    //This will get latitude, longitude and accuracy
+    let mapLat = position.coords.latitude.toFixed(5);
+    let mapLon = position.coords.longitude.toFixed(5);
+    let mapAcc = position.coords.accuracy.toFixed(1);
+}
+const locationError = error =>{
+    switch(error.code){
+        case error.PERMISSION_DENIED:
+            alert("User denied location permission request");
+            break;
+        case error.POSITION_UNAVAILABLE:
+            alert("Location is Unavialable");
+            break;
+        case error.TIMEOUT:
+            alert("The request to get location is timed out");
+            break;
+        default:
+            alert("Unknown error occured")
+    }
+}
+if (navigator.geolocation){
+    navigator.geolocation.getCurrentPosition(getPosition, locationError);
+}else{
+    alert ('Update your browser please')
+}
