@@ -3,6 +3,7 @@ const getPosition = (position) =>{
     let mapLat = position.coords.latitude.toFixed(5);
     let mapLon = position.coords.longitude.toFixed(5);
     let mapAcc = position.coords.accuracy.toFixed(1);
+    console.log(`Latitude: ${mapLat}, Longitude: ${mapLon}, Accuracy: ${mapAcc}`)
 }
 const locationError = error =>{
     switch(error.code){
