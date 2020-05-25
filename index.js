@@ -25,3 +25,20 @@ if (navigator.geolocation){
 }else{
     alert ('Update your browser please')
 }
+
+const form = document.querySelector('.top-banner form');
+const input = document.querySelector(".top-banner input");
+const api = '568fd1b682fd640b46b0a03b2bc58499';
+// const inputValue = input.value;
+// const url = `http://api.openweathermap.org/data/2.5/weather?q=${input.value},uk&APPID=${api}`;
+form.addEventListener("submit", e =>{
+    e.preventDefault();
+    // const inputValue = input.value;
+    const api = '568fd1b682fd640b46b0a03b2bc58499';
+// const inputValue = input.value;
+const url = `http://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=${api}`;
+    console.log(input.value);
+    console.log(url)
+    input.value="";
+    input.placeholder = "Search for a city";
+});
