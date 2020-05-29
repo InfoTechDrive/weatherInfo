@@ -40,7 +40,7 @@ form.addEventListener("submit", e =>{
     input.value="";
     input.placeholder = `${reLoc} loading...`;
 
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=${loc},&APPID=${api}`
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${loc},&APPID=${api}`
     fetch(url)
         .then(response => response.json())
         .then(data => {
